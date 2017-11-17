@@ -1,5 +1,5 @@
 package com.sogou.imeda.algorithm;
 
-public class MinRootTree {
+public class BinarySearch {
 
 }
