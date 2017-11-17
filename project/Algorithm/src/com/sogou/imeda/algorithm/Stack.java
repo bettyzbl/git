@@ -11,7 +11,7 @@ public class Stack {
 		this.index = index;
 	}
 
-	private int insert(int a) {
+	private int push(int a) {
 		if (index < array.length - 1) {
 			array[index + 1] = a;
 			index++;
@@ -29,7 +29,7 @@ public class Stack {
 		}
 	}
 
-	private String poll() {
+	private String pop() {
 		if (index >= 0) {
 			int b = array[index];
 			array[index] = Integer.MIN_VALUE;
@@ -61,9 +61,10 @@ public class Stack {
 		// System.out.println(stack.insert(300));
 		// System.out.println(stack.printStack());
 		System.out.println("start insert==========");
-		for (int i = 0; i < 16; i++) {
-			System.out.println(stack.insert(i + 100));
+		for (int i = 0; i < 5; i++) {
+			System.out.println(stack.push(i + 100));
 		}
+		System.out.println("end insert==========");
 
 		System.out.println(stack.printStack());
 	}
