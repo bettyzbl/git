@@ -1,16 +1,17 @@
 package com.sogou.imeda.algorithm;
 
-public class OnewayLinkedList {
+public class OnewayLinkedList<E> {
 	Node head;
-	int length;
 
 	public OnewayLinkedList() {
 	}
 
-	/*
-	 * 定义一个创建链表的方法 该方法称之为 ：尾插法：新产生的节点从尾部插入链表
+	/**
+	 * create a linkedlist from array
+	 * 
+	 * @param a
 	 */
-	public void createlink(int[] a) {
+	public void createlink(int[] a) {//这里为什么不能写E[]
 		Node pnew;
 		Node ptail = new Node();
 		this.head = ptail;
@@ -23,7 +24,12 @@ public class OnewayLinkedList {
 		}
 	}
 
-	public void searcLink(int value) {
+	/**
+	 * search if specified value exists in the linkedlist
+	 * 
+	 * @param value
+	 */
+	public void searcLink(E value) {
 		Node pointer = this.head.getNext();
 		while (true) {
 			if (pointer == null) {
@@ -39,7 +45,13 @@ public class OnewayLinkedList {
 		}
 	}
 
-	public void deleteNode(int value) {
+	/**
+	 * delete the specified node
+	 * 
+	 * @param value
+	 *            specified data of the node
+	 */
+	public void deleteNode(E value) {
 		Node pointer = this.head.getNext();
 		Node lastPtr = this.head;
 		while (true) {
@@ -57,6 +69,11 @@ public class OnewayLinkedList {
 		}
 	}
 
+	/**
+	 * print all the datas of this linkedlist
+	 * 
+	 * @return datas,split by ','
+	 */
 	private String printList() {
 		String result = "";
 		Node node = head.next;
@@ -70,12 +87,47 @@ public class OnewayLinkedList {
 		return result.substring(1);
 	}
 
+	/**
+	 * insert a new node after pos node
+	 * 
+	 * @param pos
+	 * @param value
+	 */
+	public void insertNode(E pos, E value) {
+		Node pointer1 = this.head.getNext();
+		Node pointer2 = pointer1.getNext();
+		while (true) {
+			if (pointer1 == null) {
+				System.out.println("cannot find data:" + pos);
+				break;
+			}
+			if (pointer1.getData() == pos) {
+				Node newNode = new Node();
+				newNode.setData(value);
+				newNode.setNext(pointer2);
+				pointer1.setNext(newNode);
+				break;
+			} else {
+				pointer1 = pointer2;
+				if (pointer2 != null)
+					pointer2 = pointer2.getNext();
+			}
+		}
+	}
+
 	public static void main(String[] args) {
 		int[] datas = { 1, 2, 3, 4, 5 };
-		OnewayLinkedList owll = new OnewayLinkedList();
+		OnewayLinkedList<Integer> owll = new OnewayLinkedList<Integer>();
 		owll.createlink(datas);
 		System.out.println(owll.printList());
 		owll.deleteNode(3);
+		System.out.println(owll.printList());
+
+		owll.insertNode(2, 10);
+		System.out.println(owll.printList());
+		owll.insertNode(5, 11);
+		System.out.println(owll.printList());
+		owll.insertNode(12, 12);
 		System.out.println(owll.printList());
 	}
 }

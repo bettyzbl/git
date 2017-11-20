@@ -1,18 +1,18 @@
 package com.sogou.imeda.algorithm;
 
-public class Node {
-	int data;
-	Node next;
-	Node pre;
+public class Node<E> {
+	E data;
+	Node<E> next;
+	Node<E> pre;
 
 	// one way link list
-	public Node(int data, Node next) {
+	public Node(E data, Node<E> next) {
 		this.data = data;
 		this.next = next;
 	}
 
 	// dual link list
-	public Node(int data, Node next, Node pre) {
+	public Node(E data, Node<E> next, Node<E> pre) {
 		this.data = data;
 		this.next = next;
 		this.pre = pre;
@@ -22,31 +22,31 @@ public class Node {
 	}
 
 	// head node
-	public Node(Node next) {
+	public Node(Node<E> next) {
 		this.next = next;
 	}
 
-	public int getData() {
+	public E getData() {
 		return this.data;
 	}
 
-	public void setData(int data) {
+	public void setData(E data) {
 		this.data = data;
 	}
 
-	public Node getNext() {
+	public Node<E> getNext() {
 		return this.next;
 	}
 
-	public void setNext(Node next) {
+	public void setNext(Node<E> next) {
 		this.next = next;
 	}
 
-	public Node getPre() {
+	public Node<E> getPre() {
 		return this.pre;
 	}
 
-	public void setPre(Node pre) {
+	public void setPre(Node<E> pre) {
 		this.pre = pre;
 	}
 
