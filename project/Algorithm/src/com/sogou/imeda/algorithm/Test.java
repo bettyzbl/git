@@ -1,13 +1,12 @@
 package com.sogou.imeda.algorithm;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-
 public class Test {
 	public static void main(String[] args) {
-		List<Integer> arraylist = new ArrayList<Integer>();
-		List<Integer> linkedlist = new LinkedList<Integer>();
-		
+		int i = 0;
+
+		for (int j = i + 1; j < 5; j++) {
+			System.out.println("i=" + i + ";j=" + j);
+		}
+
 	}
 }
