@@ -22,6 +22,6 @@ public class BinarySearch {
 		} else {
 			biSearch(a, mid + 1, end, b);
 		}
-		return null;
+		return 0;
 	}
 }
