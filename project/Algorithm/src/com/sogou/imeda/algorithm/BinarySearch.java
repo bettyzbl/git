@@ -19,9 +19,9 @@ public class BinarySearch {
 			return -1;
 		}
 		if (b < a[mid]) {
-			biSearch(a, start, mid - 1, b);
+			return biSearch(a, start, mid - 1, b);
 		} else if (b > a[mid]) {
-			biSearch(a, mid + 1, end, b);
+			return biSearch(a, mid + 1, end, b);
 		}
 		return -2;
 	}
