@@ -1,7 +1,7 @@
 package com.sogou.imeda.algorithm;
 
 public class OnewayLinkedList<E> {
-	Node head;
+	private Node<E> head;
 
 	public OnewayLinkedList() {
 	}
@@ -11,12 +11,12 @@ public class OnewayLinkedList<E> {
 	 * 
 	 * @param a
 	 */
-	public void createlink(int[] a) {//ÕâÀïÎªÊ²Ã´²»ÄÜÐ´E[]
-		Node pnew;
-		Node ptail = new Node();
+	public void createlink(E[] a) {// ï¿½ï¿½ï¿½ï¿½ÎªÊ²Ã´ï¿½ï¿½ï¿½ï¿½Ð´E[]
+		Node<E> pnew;
+		Node<E> ptail = new Node<>();
 		this.head = ptail;
 		for (int i = 0; i < a.length; i++) {
-			pnew = new Node();
+			pnew = new Node<>();
 			pnew.setData(a[i]);
 			ptail.setNext(pnew);
 			pnew.setNext(null);
@@ -30,7 +30,7 @@ public class OnewayLinkedList<E> {
 	 * @param value
 	 */
 	public void searcLink(E value) {
-		Node pointer = this.head.getNext();
+		Node<E> pointer = this.head.getNext();
 		while (true) {
 			if (pointer == null) {
 				System.out.println("cannot find data:" + value);
@@ -52,8 +52,8 @@ public class OnewayLinkedList<E> {
 	 *            specified data of the node
 	 */
 	public void deleteNode(E value) {
-		Node pointer = this.head.getNext();
-		Node lastPtr = this.head;
+		Node<E> pointer = this.head.getNext();
+		Node<E> lastPtr = this.head;
 		while (true) {
 			if (pointer == null) {
 				System.out.println("cannot find data:" + value);
@@ -74,9 +74,9 @@ public class OnewayLinkedList<E> {
 	 * 
 	 * @return datas,split by ','
 	 */
-	private String printList() {
+	public String printList() {
 		String result = "";
-		Node node = head.next;
+		Node<E> node = head.next;
 		while (true) {
 			if (node == null) {
 				break;
@@ -94,15 +94,15 @@ public class OnewayLinkedList<E> {
 	 * @param value
 	 */
 	public void insertNode(E pos, E value) {
-		Node pointer1 = this.head.getNext();
-		Node pointer2 = pointer1.getNext();
+		Node<E> pointer1 = this.head.getNext();
+		Node<E> pointer2 = pointer1.getNext();
 		while (true) {
 			if (pointer1 == null) {
 				System.out.println("cannot find data:" + pos);
 				break;
 			}
 			if (pointer1.getData() == pos) {
-				Node newNode = new Node();
+				Node<E> newNode = new Node<>();
 				newNode.setData(value);
 				newNode.setNext(pointer2);
 				pointer1.setNext(newNode);
@@ -116,7 +116,7 @@ public class OnewayLinkedList<E> {
 	}
 
 	public static void main(String[] args) {
-		int[] datas = { 1, 2, 3, 4, 5 };
+		Integer[] datas = { 1, 2, 3, 4, 5 };
 		OnewayLinkedList<Integer> owll = new OnewayLinkedList<Integer>();
 		owll.createlink(datas);
 		System.out.println(owll.printList());

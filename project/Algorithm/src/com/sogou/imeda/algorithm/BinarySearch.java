@@ -4,9 +4,10 @@ public class BinarySearch {
 
 	public static void main(String[] args) {
 		int[] array = { 2, 5, 7, 9, 10, 25, 47, 69 };
-		// int index = biSearch(array, 0, array.length - 1, 10);
-		int index2 = binarySearch(array, 5);
-		System.out.println(index2);
+		int index = biSearch(array, 0, array.length - 1, 10);
+		// int index2 = binarySearch(array, 5);
+		// System.out.println(index2);
+		System.out.println(index);
 	}
 
 	private static int biSearch(int[] a, int start, int end, int b) {
