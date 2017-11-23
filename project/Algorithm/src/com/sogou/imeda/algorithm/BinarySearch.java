@@ -5,6 +5,8 @@ public class BinarySearch {
 	public static void main(String[] args) {
 		int[] array = { 2, 5, 7, 9, 10, 25, 47, 69 };
 		int index = biSearch(array, 0, array.length - 1, 10);
+		// int index2 = binarySearch(array, 5);
+		// System.out.println(index2);
 		System.out.println(index);
 	}
 
@@ -19,10 +21,32 @@ public class BinarySearch {
 			return -1;
 		}
 		if (b < a[mid]) {
-			biSearch(a, start, mid - 1, b);
+			return biSearch(a, start, mid - 1, b);
 		} else if (b > a[mid]) {
-			biSearch(a, mid + 1, end, b);
+			return biSearch(a, mid + 1, end, b);
 		}
 		return -2;
+	}
+
+	private static int binarySearch(int[] array, int key) {
+		int mid = array.length / 2;
+		if (array[mid] == key) {
+			return mid;
+		}
+
+		int start = 0;
+		int end = array.length - 1;
+		while (start <= end) {
+			mid = (end - start) / 2 + start;
+			if (key < array[mid]) {
+				end = mid - 1;
+			} else if (key > array[mid]) {
+				start = mid + 1;
+			} else {
+				return mid;
+			}
+		}
+
+		return -1;
 	}
 }
