@@ -1,4 +1,4 @@
-package com.sogou.imeda.algorithm;
+package com.sogou.imeda.datastruct;
 
 public class OnewayLinkedList<E> {
 	private Node<E> head;

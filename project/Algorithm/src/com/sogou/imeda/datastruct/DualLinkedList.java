@@ -1,10 +1,10 @@
-package com.sogou.imeda.algorithm;
+package com.sogou.imeda.datastruct;
 
 public class DualLinkedList<E> {
-	Node head;
+	Node<E> head;
 
 	public DualLinkedList() {
-		this.head = new Node();
+		this.head = new Node<>();
 		this.head.setNext(null);
 	}
 
@@ -13,11 +13,11 @@ public class DualLinkedList<E> {
 	 * 
 	 * @param a
 	 */
-	public void createlink(int[] a) {
-		Node ptail = new Node();
+	public void createlink(E[] a) {
+		Node<E> ptail = new Node<>();
 		this.head = ptail;
 		for (int i = 0; i < a.length; i++) {
-			Node pnew = new Node();
+			Node<E> pnew = new Node<>();
 			pnew.setData(a[i]);
 			ptail.setNext(pnew);
 			pnew.setPre(ptail);
@@ -32,7 +32,7 @@ public class DualLinkedList<E> {
 	 * @param e
 	 */
 	private void addFirst(E e) {
-		Node node = new Node();
+		Node<E> node = new Node<>();
 		node.setData(e);
 		if (head.getNext() == null) {
 			head.setNext(node);
@@ -51,8 +51,8 @@ public class DualLinkedList<E> {
 	 * @param e
 	 */
 	private void addLast(E e) {
-		Node p = head;
-		Node newNode = new Node();
+		Node<E> p = head;
+		Node<E> newNode = new Node<>();
 		newNode.setData(e);
 		while (true) {
 			if (p.getNext() == null) {
@@ -72,8 +72,8 @@ public class DualLinkedList<E> {
 	 * @param value
 	 */
 	private void insert(E pos, E value) {
-		Node pointer1 = head.getNext();
-		Node newnode = new Node();
+		Node<E> pointer1 = head.getNext();
+		Node<E> newnode = new Node<>();
 		newnode.setData(value);
 		while (true) {
 			if (pointer1 == null) {
@@ -103,15 +103,15 @@ public class DualLinkedList<E> {
 	 * @param value
 	 */
 	private void removeElement(E value) {
-		Node pointer = head;
+		Node<E> pointer = head;
 		while (true) {
 			if (pointer.getNext() == null) {
 				System.out.println("cannot find value:" + value);
 				break;
 			}
 			if (pointer.getData() == value) {
-				Node pre = pointer.getPre();
-				Node next = pointer.getNext();
+				Node<E> pre = pointer.getPre();
+				Node<E> next = pointer.getNext();
 			}
 		}
 	}
@@ -123,7 +123,7 @@ public class DualLinkedList<E> {
 	 */
 	private String printList() {
 		String result = "";
-		Node node = head.next;
+		Node<E> node = head.next;
 		while (true) {
 			if (node == null) {
 				break;
@@ -139,7 +139,7 @@ public class DualLinkedList<E> {
 	}
 
 	public static void main(String[] args) {
-		int[] datas = { 1, 2, 3, 4, 5 };
+		Integer[] datas = { 1, 2, 3, 4, 5 };
 		DualLinkedList<Integer> dll = new DualLinkedList<Integer>();
 		dll.createlink(datas);
 		System.out.println(dll.printList());
